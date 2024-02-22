@@ -160,7 +160,129 @@ Verify the registered gateway EUI with the EUI on bottom label of the physical g
 ![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/638a48f8-9851-4e6d-8738-7010607ad685)
 Figure 16: TheThingsNetwork – Gateway ID
 
+Frequency Plan: “AU_915_928_FSB_2”.
+May selected a different frequency plan via “General Settings”.
+
+**NOTE**: Frequency plan selection is dependent on the operating frequency of the LoRaWAN gateway.
+
+![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/26a837f8-5573-4069-84c5-c6d380f8ae37)
+Figure 17: TheThingsNetwork – Frequency Plan
+
+Once the gateway is registered, and if the gateway is communicating to The Things network, the status should display as connected.
+
+### Application Configuration with The Things Network (for reference, skip for in-lab exercise)
+
+Click “Create application” for new application.  
+
+![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/1bd6b52d-7d40-4d10-8161-e81c7658e2f3)
+Figure 18: TheThingsNetwork – Applications
+
+The application ID should be in lower case and used to uniquely identify your application on the network.
+
+![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/1ed0729a-66d9-45d0-98cc-b866c6583c59)
+Figure 19: TheThingsNetwork – Applications ID
+
+###	Register End-Device with The Things Network (for reference, skip for in-lab exercise)
+
+On the Application tab, Click “Register end device”.
+
+![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/e0fc3d17-8023-4c03-88e0-5e3130d5baeb)
+
+-	Frequency Plan: “Australia 915-928 MHz, FSB 2”
+-	LoRaWan Version: “LoRaWan Specification 1.0.2”
+-	Regional Parameters Version: “RP001 Regional Parameters 1.0.2 revision B”
+-	Activation mode: Over The Air Activation (OTAA)
+-	Additional LoRaWAN class capabilities: None (Class A only)
+
+**NOTE**: Because the MCCI LoRaWAN LMIC Library has only been tested with LoRaWAN 1.0.2/1.0.3 networks.
+
+![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/307f8efc-3b39-45f3-9edf-a8a970df31d2)
+Figure 20: TheThingsNetwork – Register End Device 1
+
+-	Choose and enter End Device ID.
+-	Join EUI: 00 00 00 00 00 00 00 00
+-	Application EUI: Auto-generate.
+-	App Key: Auto-generate.
+
+Take note of the Application/Join EUI, Device EUI and the App Key. These keys are needed later to set up the LoRa-RFM + UNO.
+
+![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/ef026426-3284-4048-96b4-bb034a6537b7)
+Figure 21: TheThingsNetwork – Register End Device 2
+
+Choose and enter a Device ID and an eight-byte Device EUI.
+
+![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/0fbf9e65-0dbb-408e-96ce-a615d19491d6)
+Figure 22: TheThingsNetwork – Register End Device 3
+
+###	End Device Configuration 
+
+1.  LoRaWAN Library Install
+
+-	Install the MCCI LoRaWAN LMIC library.
+-	In the Arduino IDE, select menu Sketch | Include Library | Manage Libraries
+-	In the search box enter: MCCI
+-	Click the MCCI LoRaWAN LMIC library by Terry Moore.
+-	Select the latest version and press the Install button.
+
+![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/ebc852a5-5b15-4883-84ff-d549c8ee7acf)
+
+2.	End Device LoRaWAN Configuration
+
+The LoRa-RFM transceiver module does not have a built-in DevEUI or AppEUI. In such a case you should let the TTN console generate the required DevEUI or AppEUI. Here below is an example of generated AppEUI, DevEUI, and AppKey in the TTN console.
+
+![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/22803439-5888-47ad-a802-d7a52b4c664f)
+
+**NOTE**: AppEUI, DevEUI, and AppKey are used in the Arduino sketch. In this Arduino sketch, the DevEUI or AppEUI must be converted to an array of 16 bytes in LSB order.  The AppKey must be converted to an array of 32 bytes in MSB order. I have found an online tool that converts these values to a bytes array in its correct order (LSB/MSB). Kindly use this online tool to prevent any negligence.
+
+https://www.mobilefish.com/download/lora/eui_key_converter.html
+
+![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/8298a646-9030-4155-9736-9f951ab49b93)
+
+Open Arduino IDE. Copy and paste the code from link below. You need to do some adjustments to the code later.
+
+https://gist.githubusercontent.com/NorHairil/af7e959d92c249724db69cee6074f387/raw/6d4dc22ed6c4303cff84b6a654d8b8fc69c76aa6/DHT22node.ino
+
+From the online tool, copy DevEUI, AppEUI, and AppKey that you had converted and paste them into the sketch.
+
+![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/48ae9c5a-6a1b-4b06-8f3e-7e1e1044939f)
+
+For this part, you can double-check by checking on the shield board itself to find the correct pin mapping. This is the pin mapping for the Cytron Shield-LoRa-RFM board.
+
+![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/cdcb9458-49ca-43ad-ac44-75736b566985)
+
+3. Compile and Upload the Code
+
+Connect the Arduino board to your computer using the USB cable.
+In the Arduino IDE, select menu Tools > Board and select Arduino Uno. Then, select menu Tools > Port: your port.
+
+![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/3eea14ae-cb3f-4171-89fb-5c9dc5ef7af4)
+
+Compile ttsce-otaa-helloworld sketch. You should not see any errors (but there are warnings).
+
+Upload the ttsce-otaa-helloworld sketch to the Arduino board. You should not see any errors.
+
+![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/32b58143-f404-428f-970e-5b7fa8e4ad5d)
+
+You can open the Serial Monitor to check if your node is successfully connected to The Things Stack. In a few seconds, the Serial Monitor will show your NWSKEY and APPSKEY of your node if you have successfully connected to The Things Network.
+
+4. Display Data on The Things Network
+
+In the sample code, ”helloworld” message is transmitted every 60 seconds.
+
+If you want to convert the payload into readable text:
+
+-	Select your end device in the “End devices Overview” screen.
+-	Select “Payload formatters”.
+-	Select “Uplink”.
+-	Select “Formatter type: Javascript”.
+
+![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/34ecdb01-bab4-4060-8a75-75886f0f52e7)
+
+Finally, if both your node and gateway functioning well, you should see the number of sent uplinks and received downlinks.
+
 ## References
 1. [SemTech's LoRa Technology Overview](https://www.semtech.com/lora/what-is-lora)
 2. [Building a LoRa-based Device with Arduino](https://www.semtech.com/developer-portal)
 3. [CH341 Serial Driver](https://www.wch.cn/downloads/CH341SER_ZIP.html)
+4. [RAK7268 WisGate Edge Lite 2 User Guide](https://manuals.plus/rak/rak7268-wisgate-edge-lite-2-8-channel-indoor-lorawan-gateway-manual#axzz8RboGw8VH)
+5. [Cytron LoRa-RFM Shield + Arduino UNO User Guide](https://sg.cytron.io/tutorial/displaying-dht22-sensor-data-at-thingspeak-with-lorawan-network)
