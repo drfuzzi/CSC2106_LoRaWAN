@@ -286,3 +286,4 @@ Finally, if both your node and gateway functioning well, you should see the numb
 3. [CH341 Serial Driver](https://www.wch.cn/downloads/CH341SER_ZIP.html)
 4. [RAK7268 WisGate Edge Lite 2 User Guide](https://manuals.plus/rak/rak7268-wisgate-edge-lite-2-8-channel-indoor-lorawan-gateway-manual#axzz8RboGw8VH)
 5. [Cytron LoRa-RFM Shield + Arduino UNO User Guide](https://sg.cytron.io/tutorial/displaying-dht22-sensor-data-at-thingspeak-with-lorawan-network)
+6. [WisGateOS 2 Basics Station to TTNv3](https://docs.rakwireless.com/Product-Categories/WisGate/RAK7268-V2/Supported-LoRa-Network-Servers/#wisgateos-2-basics-station-to-ttnv3)
