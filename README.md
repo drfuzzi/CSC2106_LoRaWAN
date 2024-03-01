@@ -226,6 +226,13 @@ Figure 22: TheThingsNetwork – Register End Device 3
 
 ![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/ebc852a5-5b15-4883-84ff-d549c8ee7acf)
 
+1.1 Configure the MCCI LoRaWAN LMIC Library
+- Edit file lmic_project_config.h.
+- This file can be found at: ".../libraries/MCCI_LoRaWAN_LMIC_library/project_config"
+- Comment "#define CFG_us915 1", uncomment "#define CFG_au915 1"
+  
+![project_config](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108822683/c3148703-6372-4ebf-969c-f5b4f2455455)
+
 2.	End Device LoRaWAN Configuration
 
 The LoRa-RFM transceiver module does not have a built-in DevEUI or AppEUI. In such a case you should let the TTN console generate the required DevEUI or AppEUI. Here below is an example of generated AppEUI, DevEUI, and AppKey in the TTN console.
