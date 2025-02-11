@@ -83,7 +83,7 @@ Using your preferred Web browser, log in with the credentials provided below:
 
 **2.1.2 WAN Port (Ethernet)**
 
-Connect the Ethernet cable to the port marked ETH on the gateway and the other end to the PoE port of the PoE injector. Connect the LAN port of the PoE injector to your PC. The default IP is 169.254.X.X. The last two segments (X.X) are mapped from the last four bits of the MAC address of your gateway. For example, the last four bits of the MAC address are 0F:01, and the IP address is 169.254.15.1. Make sure to manually set the address of your PC to one in the same network (for example 169.254.15.100). Use the same credentials for the Web UI as for AP mode.
+Connect the Ethernet cable to the port marked ETH on the gateway and the other end to the PoE port of the PoE injector. Connect the LAN port of the PoE injector to your PC. The default IP is 169.254.X.X. The last two segments (X.X) are mapped from the last four bits of the MAC address of your gateway. For example, the last four bits of the MAC address are 0F:01, and the IP address is 169.254.15.1. Make sure to manually set the address of your PC to one in the same network (for example 169.254.15.100). Use the same credentials for the Web UI as for AP mode. (MAC address is also indicated as the GWEUI, on the gateway bottom print label)
 
 ![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/2f2cfbc9-707d-43ae-8fdf-d0f1976de236)
 <br />*Figure 5: Wisgate - Web UI Login Page*
