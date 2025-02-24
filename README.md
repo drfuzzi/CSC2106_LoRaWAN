@@ -251,6 +251,8 @@ Open Arduino IDE. Copy and paste the code from link below. You need to do some a
 
 From the online tool, copy DevEUI, AppEUI, and AppKey that you had converted and paste them into the sketch.
 
+**NOTE**: There are other end devices added for the gateway, may refer to the list for their DevEUI, AppEUI, and AppKey. [End Device List](https://docs.google.com/spreadsheets/d/162q66cY5dvrjUPV9j6DFyl1rWE2vFnVp/edit?usp=sharing&ouid=108366451185223435208&rtpof=true&sd=true)
+
 ![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/48ae9c5a-6a1b-4b06-8f3e-7e1e1044939f)
 
 For this part, you can double-check by checking on the shield board itself to find the correct pin mapping. This is the pin mapping for the Cytron Shield-LoRa-RFM board.
