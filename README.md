@@ -247,7 +247,7 @@ https://www.mobilefish.com/download/lora/eui_key_converter.html
 
 Open Arduino IDE. Copy and paste the code from link below. You need to do some adjustments to the code later.
 
-https://gist.githubusercontent.com/NorHairil/af7e959d92c249724db69cee6074f387/raw/6d4dc22ed6c4303cff84b6a654d8b8fc69c76aa6/DHT22node.ino
+[ttn_otaa_helloworld.ino](ttn_otaa_helloworld.ino)
 
 From the online tool, copy DevEUI, AppEUI, and AppKey that you had converted and paste them into the sketch.
 
@@ -264,9 +264,9 @@ In the Arduino IDE, select menu Tools > Board and select Arduino Uno. Then, sele
 
 ![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/3eea14ae-cb3f-4171-89fb-5c9dc5ef7af4)
 
-Compile ttsce-otaa-helloworld sketch. You should not see any errors (but there are warnings).
+Compile ttn_otaa_helloworld sketch. You should not see any errors (but there are warnings).
 
-Upload the ttsce-otaa-helloworld sketch to the Arduino board. You should not see any errors.
+Upload the ttn_otaa_helloworld sketch to the Arduino board. You should not see any errors.
 
 ![image](https://github.com/drfuzzi/CSC2106_LoRaWAN/assets/108112390/32b58143-f404-428f-970e-5b7fa8e4ad5d)
 
@@ -289,8 +289,7 @@ Finally, if both your node and gateway functioning well, you should see the numb
 
 ## References
 1. [SemTech's LoRa Technology Overview](https://www.semtech.com/lora/what-is-lora)
-2. [Building a LoRa-based Device with Arduino](https://www.semtech.com/developer-portal)
-3. [CH341 Serial Driver](https://www.wch.cn/downloads/CH341SER_ZIP.html)
-4. [RAK7268 WisGate Edge Lite 2 User Guide](https://manuals.plus/rak/rak7268-wisgate-edge-lite-2-8-channel-indoor-lorawan-gateway-manual#axzz8RboGw8VH)
+2. [CH341 Serial Driver](https://www.wch.cn/downloads/CH341SER_ZIP.html)
+3. [RAK7268 WisGate Edge Lite 2 User Guide](https://manuals.plus/rak/rak7268-wisgate-edge-lite-2-8-channel-indoor-lorawan-gateway-manual#axzz8RboGw8VH)
+4. [WisGateOS 2 Basics Station to TTNv3](https://docs.rakwireless.com/Product-Categories/WisGate/RAK7268-V2/Supported-LoRa-Network-Servers/#wisgateos-2-basics-station-to-ttnv3)
 5. [Cytron LoRa-RFM Shield + Arduino UNO User Guide](https://sg.cytron.io/tutorial/displaying-dht22-sensor-data-at-thingspeak-with-lorawan-network)
-6. [WisGateOS 2 Basics Station to TTNv3](https://docs.rakwireless.com/Product-Categories/WisGate/RAK7268-V2/Supported-LoRa-Network-Servers/#wisgateos-2-basics-station-to-ttnv3)
